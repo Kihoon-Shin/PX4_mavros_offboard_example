@@ -172,7 +172,7 @@ int main(int argc, char **argv)
     return 0;
 }
 ```
-코드의 자세한 설명은 https://docs.px4.io/main/en/ros/mavros_offboard_cpp.html에서 확인가능
+코드의 자세한 설명은 https://docs.px4.io/main/en/ros/mavros_offboard_cpp.html 에서 확인가능
 
 Edit the `CMakeLists.txt`
 ```
