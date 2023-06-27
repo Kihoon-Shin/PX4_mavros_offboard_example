@@ -1,4 +1,4 @@
-This repository is a introduction of PX4,MAVROS for rototics members of ASL at Inha Univ.
+This repository is a introduction of PX4,MAVROS for robotics members of ASL at Inha Univ.
 ## ROS Noetic Installation(Full)
 ```bash
 sudo apt install ros-noetic-desktop-full
