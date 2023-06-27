@@ -329,7 +329,7 @@ int main(int argc, char **argv)
 
     return 0;
 }
-```cmake
+```
 CMakeLists.txt 파일 수정
 ```cmake
 cmake_minimum_required(VERSION 3.0.2)
