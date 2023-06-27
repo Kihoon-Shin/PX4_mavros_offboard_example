@@ -364,8 +364,16 @@ target_link_libraries(${PROJECT_NAME}_offb_node ${catkin_LIBRARIES})
 add_executable(${PROJECT_NAME}_offb_node_traj src/offb_node_traj.cpp)
 target_link_libraries(${PROJECT_NAME}_offb_node_traj ${catkin_LIBRARIES})
 ```
-빌드 후 실행
-rqt_graph로 offb_node 노드가 rostopic을 publish하는 것을 확인.
- 하지만 전과 다르게 드론이 움직이지 않는데 왜냐하면 자동으로 offboard 모드로 바꾸는 것을 주석처리 했기 때문
+빌드 후 
+```bash
+rosrun mavros_offboard_control_example mavros_offboard_control_example_offb_node_traj 
+```
+rqt_graph로 offb_node 노드가 mavros로 rostopic을 publish하는 것을 확인.
+
+하지만 전과 다르게 Gazebo상에서 드론이 움직이지 않는데 왜냐하면 자동으로 offboard 모드로 바꾸는 것을 주석처리 했기 때문
+
 QGC 실행 후 왼쪽 상단의 `takeoff`클릭 후 `slide to confirm` 실행하면 드론 이륙 후 Hold 모드로 진입
+
 이후 QGC에서 Hold모드를 Offboard모드로 변경하면 드론이 원운동을 함
+
+## Another Example - Pose Control
