@@ -229,7 +229,7 @@ offb_node가 `mavros/setpoint_position/local`에 publish해줌으로써 drone을
 소스코드에서 `pose.pose.position.x = 0;pose.pose.position.y = 0;pose.pose.position.z = 2;` 를 조절하며 드론위치 변경
 
 ## Another Example
-src 폴더에 `offboard_node_traj.cpp`파일 생성
+src 폴더에 `offb_node_traj.cpp`파일 생성
 ```cpp
 /**
  * @file offb_node.cpp
