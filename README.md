@@ -69,7 +69,8 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo-classic
 우리는 앞으로 drone_ws 폴더에서 빌드할 예정이므로 변경
 새로운 터미널 열고 제대로 실행되는지 확인
 ```bash
-roslaunch px4 posix_sitl.launch
+cd ~/PX4-Autopilot/
+source ~/.bashrc
 ```
 `PX4_SITL`과 `MAVROS` 함께 실행
 ```
@@ -80,13 +81,15 @@ roslaunch px4 mavros_posix_sitl.launch
 ## Run MAVROS Offboard control example
 * ### Create a ROS package
 ```bash
-cd ~/drone_ws/src
+mkdir -p ~/drone_ws/src
+cd ~/drone_ws
+catkin_make
+cd src
 catkin_create_pkg mavros_offboard_control_example geometry_msgs mavros_msgs roscpp
 ```
-* ### Create source code
+* ### Create source file
 ```bash
-roscd mavros_offboard_control_example
-cd src
+cd mavros_offboard_control_example/src
 code offb_node.cpp
 ```
 ```cpp
@@ -372,8 +375,12 @@ rqt_graph로 offb_node 노드가 mavros로 rostopic을 publish하는 것을 확�
 
 하지만 전과 다르게 Gazebo상에서 드론이 움직이지 않는데 왜냐하면 자동으로 offboard 모드로 바꾸는 것을 주석처리 했기 때문
 
-QGC 실행 후 왼쪽 상단의 `takeoff`클릭 후 `slide to confirm` 실행하면 드론 이륙 후 Hold 모드로 진입
+* QGC 실행(QGroundControl.AppImage 더블클릭)
+
+왼쪽 상단의 `takeoff`클릭 후 `slide to confirm` 실행하면 드론 이륙 후 Hold 모드로 진입
 
 이후 QGC에서 Hold모드를 Offboard모드로 변경하면 드론이 원운동을 함
+
+* 가끔씩 `roslaunch px4 mavros_posix_sitl.launch` 했을 경우 Gazebo 상에 드론 모델이 생성이 안되는 경우 발생하는데 이럴 경우 `killalll gzserver` 입력 후 다시 실행시키면 해결
 
 ## Another Example - Pose Control
